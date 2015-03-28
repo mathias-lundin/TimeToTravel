@@ -1,0 +1,23 @@
+{
+  "name": "TimeToTravel",
+  "version": "0.1.0",
+  "description": "TimeToTravel will provide you with the most suited time period to travel to a specific location around the world.",
+  "main": "./src/server/server.js",
+  "scripts": {
+    "init": "npm install",
+    "start": "node src/server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "authors": [
+    "Mathias Lundin"
+  ],
+  "license": "Apache License 2.0",
+  "homepage": "https://github.com/mathias-lundin/TimeToTravel"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mathias-lundin/TimeToTravel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mathias-lundin/TimeToTravel/issues"
+  }
+}

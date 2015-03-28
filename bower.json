@@ -1,0 +1,18 @@
+{
+  "name": "TimeToTravel",
+  "version": "0.1.0",
+  "authors": [
+    "Mathias Lundin"
+  ],
+  "description": "TimeToTravel will provide you with the most suited time period to travel to a specific location around the world.",
+  "license": "Apache License 2.0",
+  "homepage": "https://github.com/mathias-lundin/TimeToTravel.git",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
