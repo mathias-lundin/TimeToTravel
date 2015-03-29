@@ -1,5 +1,7 @@
 (function (routesConfig) {
 
+    'use strict';
+
     routesConfig.init = function (app) {
 
         app.get('/ping', function (req, res, next) {
@@ -11,6 +13,6 @@
         app.all('/api/*', function (req, res) {
             res.sendStatus(404);
         });
-    }
+    };
 
 }(module.exports));

@@ -1,16 +1,18 @@
+'use strict';
+
 var express = require('express'),
     app = express();
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = require('./config/config')[env],
-    config_express = require('./config/express'),
-    config_routes = require('./config/routes');
+    expressConfig = require('./config/express'),
+    routesConfig = require('./config/routes');
 
 console.log('About to crank up the server...');
 
-config_express.init(app, config, env);
-config_routes.init(app);
+expressConfig.init(app, config, env);
+routesConfig.init(app);
 
 app.listen(config.port);
 
