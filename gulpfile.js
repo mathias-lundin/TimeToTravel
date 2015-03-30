@@ -165,7 +165,7 @@ gulp.task('optimize', ['inject'], function () {
         .pipe($.revReplace())
         .pipe(gulp.dest(config.dist))
         .pipe($.rev.manifest())
-        .pipe(gulp.dest(config.dist))
+        .pipe(gulp.dest(config.dist));
 });
 
 gulp.task('build', ['optimize', 'images', 'fonts'], function () {
@@ -174,7 +174,45 @@ gulp.task('build', ['optimize', 'images', 'fonts'], function () {
     del(config.temp);
 });
 
+gulp.task('serve-dist', ['build'], function () {
+    serve(false);
+});
+
+gulp.task('serve-dev', ['inject'], function () {
+    serve(true);
+});
+
 ///////////////
+
+function serve(isDev) {
+    var nodeOptions = {
+        script: config.nodeServer,
+        delayTime: 1,
+        env: {
+            'PORT': port,
+            'NODE_ENV': isDev ? 'development' : 'dist'
+        },
+        watch: [config.server]
+    };
+
+    return $.nodemon(nodeOptions)
+        .on('change', function () {
+            log('*** nodemon changed');
+        })
+        .on('restart', function (ev) {
+            log('*** nodemon changed');
+            log('files changed on restart:\n' + ev);
+        })
+        .on('start', function () {
+            log('*** nodemon started');
+        })
+        .on('crash', function () {
+            log('*** nodemon crashed');
+        })
+        .on('exit', function () {
+            log('*** nodemon exited cleanly');
+        });
+}
 
 function clean(path, done) {
     log('Cleaning: ' + $.util.colors.blue(path));
