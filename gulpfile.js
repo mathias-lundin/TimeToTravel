@@ -2,6 +2,7 @@
 
 var gulp = require('gulp'),
     args = require('yargs').argv,
+    browserSync = require('browser-sync'),
     config = require('./gulp.config')(),
     del = require('del'),
     path = require('path'),
@@ -202,9 +203,14 @@ function serve(isDev) {
         .on('restart', function (ev) {
             log('*** nodemon changed');
             log('files changed on restart:\n' + ev);
+            setTimeout(function () {
+                browserSync.notify('reloading now...');
+                browserSync.reload({stream: false});
+            }, config.browserReloadDelay);
         })
         .on('start', function () {
             log('*** nodemon started');
+            startBrowserSync(isDev);
         })
         .on('crash', function () {
             log('*** nodemon crashed');
@@ -212,6 +218,55 @@ function serve(isDev) {
         .on('exit', function () {
             log('*** nodemon exited cleanly');
         });
+}
+
+function startBrowserSync(isDev) {
+    if (args.nosync || browserSync.active) {
+        return;
+    }
+
+    log('Starting browser-sync on port ' + port);
+
+    if (isDev) {
+        gulp.watch([config.less], ['styles'])
+            .on('change', function (event) {
+                changeEvent(event);
+            });
+    } else {
+        gulp.watch([config.less, config.js, config.html], ['optimize', browserSync.reload])
+            .on('change', function (event) {
+                changeEvent(event);
+            });
+    }
+
+    var options = {
+        proxy: 'localhost:' + port,
+        port: 3000, //TODO why 3000?
+        files: isDev ? [
+            config.client + '**/*.*',
+            '!' + config.less, //Do not watch the .less files
+            config.temp + '**/*.css'
+        ] : [],
+        ghostMode: {
+            clicks: true,
+            location: false,
+            forms: true,
+            scroll: true
+        },
+        injectChanges: true,
+        logFileChanges: true,
+        logLevel: 'debug',
+        logPrefix: 'gulp-patterns',
+        notify: true,
+        reloadDelay: 1000
+    };
+
+    browserSync(options);
+}
+
+function changeEvent(event) {
+    var srcPattern = '/.*(?)/' + config.source + ')/'; //TODO
+    log('File ' + event.path.replace(srcPattern, '') + ' ' + event.type);
 }
 
 function clean(path, done) {

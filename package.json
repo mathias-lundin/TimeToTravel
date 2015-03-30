@@ -5,6 +5,7 @@
   "main": "./src/server/server.js",
   "scripts": {
     "init": "npm install",
+    "postinstall": "bower cache clean && bower install",
     "start": "node src/server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,9 +22,12 @@
     "url": "https://github.com/mathias-lundin/TimeToTravel/issues"
   },
   "dependencies": {
+    "body-parser": "^1.12.2",
+    "cookie-parser": "^1.3.4",
     "express": "^4.12.3"
   },
   "devDependencies": {
+    "browser-sync": "^2.5.0",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",

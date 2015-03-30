@@ -42,6 +42,11 @@ module.exports = function () {
         },
 
         /**
+         * Browser sync
+         */
+        browserReloadDelay: 0,
+
+        /**
          * Bower and NPM locations
          */
         bower: {
