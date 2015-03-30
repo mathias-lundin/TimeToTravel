@@ -34,6 +34,14 @@ module.exports = function () {
         temp: temp,
 
         /**
+         * Optimized files
+         */
+        optimized: {
+            app: 'app.js',
+            lib: 'lib.js'
+        },
+
+        /**
          * Bower and NPM locations
          */
         bower: {

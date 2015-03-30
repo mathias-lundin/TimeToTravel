@@ -11,6 +11,14 @@ var gulp = require('gulp'),
 gulp.task('help', $.taskListing);
 gulp.task('default', ['help']);
 
+/**
+ * Bump the version
+ * --type=pre will bump the pre-release version *.*.*-x
+ * --type=patch will bump the patch version *.*.x
+ * --type=minor will bump the minor version *.x.*
+ * --type=major will bump the major version x.*.*
+ * --version=1.2.3 will bump to a specific version and ignore other flags
+ */
 gulp.task('bump', function () {
     var msg = 'Bumping versions',
         type = args.type,
@@ -127,6 +135,43 @@ gulp.task('inject', ['wiredep', 'styles'], function () {
         .src(config.index)
         .pipe($.inject(gulp.src(config.css)))
         .pipe(gulp.dest(config.client));
+});
+
+gulp.task('optimize', ['inject'], function () {
+    log('Optimize the js, css and html');
+
+    var assets = $.useref.assets({searchPath: './'}),
+        cssFilter = $.filter('**/*.css'),
+        jsLibFilter = $.filter('**/' + config.optimized.lib),
+        jsAppFilter = $.filter('**/' + config.optimized.app);
+
+    return gulp
+        .src(config.index)
+        .pipe($.plumber())
+        .pipe(assets)
+        .pipe(cssFilter)
+        .pipe($.csso())
+        .pipe(cssFilter.restore())
+        .pipe(jsLibFilter)
+        .pipe($.uglify())
+        .pipe(jsLibFilter.restore())
+        .pipe(jsAppFilter)
+        .pipe($.ngAnnotate())
+        .pipe($.uglify())
+        .pipe(jsAppFilter.restore())
+        .pipe($.rev())
+        .pipe(assets.restore())
+        .pipe($.useref())
+        .pipe($.revReplace())
+        .pipe(gulp.dest(config.dist))
+        .pipe($.rev.manifest())
+        .pipe(gulp.dest(config.dist))
+});
+
+gulp.task('build', ['optimize', 'images', 'fonts'], function () {
+    log('Building everything');
+
+    del(config.temp);
 });
 
 ///////////////
