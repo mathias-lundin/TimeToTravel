@@ -19,7 +19,7 @@ module.exports = function () {
         client: client,
         css: temp + 'styles.css',
         dist: './dist/',
-        fonts: './bower_components/materialize/font/**/*.*',
+        fonts: './bower_components/font-awesome/fonts/**/*.*',
         html: clientApp + '**/*.html',
         images: client + 'images/**/*.*',
         index: client + 'index.html',

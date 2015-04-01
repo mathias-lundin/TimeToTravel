@@ -100,7 +100,7 @@ gulp.task('fonts', ['clean-fonts'], function () {
 
     return gulp
         .src(config.fonts)
-        .pipe(gulp.dest(config.dist + 'font'));
+        .pipe(gulp.dest(config.dist + 'fonts'));
 });
 
 gulp.task('images', ['clean-images'], function () {

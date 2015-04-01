@@ -13,14 +13,15 @@
         .ng-hide { display: none!important; }
     </style>
 
-    <!-- build:css css/lib.css -->
+    <!-- build:css styles/lib.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
-    <link rel="stylesheet" href="/bower_components/materialize/bin/materialize.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:css css/app.css-->
+    <!-- build:css styles/app.css-->
     <!-- inject:css -->
     <link rel="stylesheet" href="/.tmp/styles.css">
     <!-- endinject -->
@@ -28,7 +29,7 @@
 </head>
 <body>
     <div>
-        <p>Hello World!</p>
+        Hello world
         <!--<div ng-include="'app/layout/shell.html'"></div>-->
     </div>
 
@@ -37,8 +38,8 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/bower_components/toastr/toastr.js"></script>
-    <script src="/bower_components/materialize/bin/materialize.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
