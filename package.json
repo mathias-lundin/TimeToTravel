@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "authors": [
-    "Mathias Lundin"
+    "Mathias Lundin (greatly influenced by John Papa and Joe Eames and their Pluralsight courses)"
   ],
   "license": "Apache License 2.0",
   "homepage": "https://github.com/mathias-lundin/TimeToTravel",
