@@ -9,6 +9,7 @@
 
         /* Feature areas */
         'app.home',
+        'app.about',
         'app.layout'
     ]);
 
