@@ -8,6 +8,7 @@
         'app.core',
 
         /* Feature areas */
+        'app.home',
         'app.layout'
     ]);
 

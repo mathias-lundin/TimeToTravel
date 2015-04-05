@@ -1,5 +1,11 @@
-header + .container {
+/* Needs padding-top as the header takes up some space above... */
+#main-content > div > .container {
   padding: 60px 15px 0;
+}
+
+/* ... but only the first one */
+#main-content > div > .container ~ .container {
+  padding: 0 15px;
 }
 
 footer {

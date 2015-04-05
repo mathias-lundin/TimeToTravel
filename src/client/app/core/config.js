@@ -21,4 +21,25 @@
 
     core.value('config', config);
 
+    core.config(configure);
+
+    configure.$inject = ['$compileProvider', '$logProvider', 'routerHelperProvider'];
+    /* @ngInject */
+    function configure($compileProvider, $logProvider, routerHelperProvider) {
+        $compileProvider.debugInfoEnabled = false;
+
+        if ($logProvider.debugEnabled) {
+            $logProvider.debugEnabled(true);
+        }
+
+        configureStateHelper();
+
+        function configureStateHelper() {
+            routerHelperProvider.configure({
+                docTitle: 'Time To Travel | ',
+                resolveAlways: {}
+            });
+        }
+    }
+
 })();
