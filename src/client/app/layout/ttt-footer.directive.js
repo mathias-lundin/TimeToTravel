@@ -4,23 +4,22 @@
 
     angular
         .module('app.layout')
-        .directive('htTopNav', htTopNav);
+        .directive('tttFooter', tttFooter);
 
     /* @ngInject */
-    function htTopNav() {
+    function tttFooter() {
         var directive = {
             bindToController: true,
-            controller: TopNavController,
+            controller: FooterController,
             controllerAs: 'vm',
-            restrict: 'EA',
+            restrict: 'E',
             scope: {
-                'navItems': '=',
-                'appTitle': '='
+                'year': '='
             },
-            templateUrl: 'app/layout/ht-top-nav.html'
+            templateUrl: 'app/layout/ttt-footer.html'
         };
 
-        function TopNavController() {
+        function FooterController() {
             var vm = this;
         }
 
@@ -28,3 +27,4 @@
     }
 
 })();
+

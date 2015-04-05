@@ -11,14 +11,15 @@
     function ShellController(config) {
         var vm = this;
 
-        vm.title = config.appTitle;
-        /*vm.menuItems = [
+        vm.appTitle = config.appTitle;
+        vm.navItems = [
             {text: 'Home', link: '/'},
             {text: 'About', link: '/about'},
             {text: 'Contact', link: '/contact'}
-        ];*/
+        ];
+        vm.year = moment().year();
 
-        activate();
+        //activate();
 
         function activate() {
             // TODO log

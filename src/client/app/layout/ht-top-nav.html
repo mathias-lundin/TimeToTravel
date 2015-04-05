@@ -8,22 +8,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">{{vm.title}}</a>
+            <a class="navbar-brand" href="#">{{vm.appTitle}}</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li ng-repeat="navItem in vm.navItems">
+                    <a ng-href="{{navItem.link}}">{{navItem.text}}</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
-
-<!--
-<ul class="nav navbar-nav">
-    <li ng-repeat="menuItem in vm.menuItems">
-        <a ng-href="{{menuItem.link}}">{{menuItem.text}}</a>
-    </li>
-</ul>
--->
