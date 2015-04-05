@@ -24,7 +24,8 @@
                     title: 'Home',
                     settings: {
                         nav: 1,
-                        content: '<i class="fa fa-dashboard"></i> Home'
+                        content: 'Home'
+                        //content: '<i class="fa fa-home"></i> Home'
                     }
                 }
             }
