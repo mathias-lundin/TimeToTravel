@@ -1,5 +1,16 @@
 <footer>
     <div class="container">
-        <p>&copy; <span>{{vm.year}}</span></p>
+        <div class="footer-content">
+            <span>&copy; {{vm.year}}</span>
+        </div>
+        <div class="footer-content pull-right">
+            <ul>
+                <li ng-repeat="link in vm.links">
+                    <a href="{{link.url}}" target="_blank" title="{{link.title}}">
+                        <img ng-src="../..{{link.icon}}" alt="{{link.title}}" class="footer-link-icon"></img>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </footer>

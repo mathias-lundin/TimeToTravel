@@ -12,6 +12,7 @@
         var vm = this;
 
         vm.year = moment().year();
+        vm.links = config.links;
 
         //activate();
 

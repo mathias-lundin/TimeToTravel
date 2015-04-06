@@ -1,36 +1,46 @@
-//@screen-sm-mi: 768px;
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+
+@base-color: #fff;
+@primary-color: #4db6ac;
+@secondary-color: #009688;
+
+@font-weight-light: 300;
+@font-weight-normal: 400;
+@font-weight-medium: 500;
+@font-weight-bold: 700;
 
 body {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* ------ Header & Footer ------ */
+
 header,
 footer {
-  font-weight: 300;
+  font-weight: @font-weight-light;
 }
 
 header .navbar-default {
-  background-color: #4db6ac;
-  border-color: #009688;
+  background-color: @primary-color;
+  border-color: @secondary-color;
 }
 
 header .navbar-default .navbar-brand,
 header .navbar-default .navbar-nav > li > a {
-  color: #fff;
+  color: @base-color;
 }
 
 header .navbar-default .navbar-toggle {
-  border-color: #fff;
+  border-color: @base-color;
 }
 
 header .navbar-default .navbar-toggle .icon-bar {
-  background-color: #fff;
+  background-color: @base-color;
 }
 
 header .navbar-default .navbar-nav > li > a:hover,
 header .navbar-default .navbar-nav > li > a:focus {
-  color: #fff;
+  color: @base-color;
 }
 
 header .navbar-default .navbar-brand:hover,
@@ -39,14 +49,14 @@ header .navbar-default .navbar-nav > li > a:hover,
 header .navbar-default .navbar-nav > li > a:focus,
 header .navbar-default .navbar-toggle:hover,
 header .navbar-default .navbar-toggle:focus {
-  color: #fff;
-  background-color: #009688;
+  color: @base-color;
+  background-color: @secondary-color;
 }
 
 header .navbar-default .navbar-toggle,
 header .navbar-default .navbar-collapse,
 header .navbar-default .navbar-form {
-  border-color: #009688;
+  border-color: @secondary-color;
 }
 
 footer {
@@ -54,19 +64,30 @@ footer {
   bottom: 0;
   width: 100%;
   height: 60px;
-  background-color: #4db6ac;
-  border-color: #009688;
+  background-color: @primary-color;
+  border-color: @secondary-color;
+}
+
+footer ul {
+  list-style-type: none;
+  margin: 0;
 }
 
 footer > .container {
   padding-right: 15px;
   padding-left: 15px;
+  color: @base-color;
 }
 
-footer > .container > p {
-  color: #fff;
+footer > .container > .footer-content {
+  display: inline-block;
   margin: 20px 0;
 }
+
+/* ------ Header & Footer end ------ */
+
+
+/* ------ Content ------ */
 
 /* Needs padding-top as the header takes up some space above... */
 #main-content > div > .container {
@@ -77,3 +98,60 @@ footer > .container > p {
 #main-content > div > .container ~ .container {
   padding: 0 15px;
 }
+
+/* ------ Content end ------ */
+
+
+/* ------ Forms ------ */
+
+#destination-form .form-group,
+#destination-form .form-group .input-group, {
+  width: 100%;
+}
+
+.form-control:focus {
+  border-color: @secondary-color;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(77, 182, 172, .6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(77, 182, 172, .6);
+}
+
+/* ------ Forms end ------ */
+
+
+/* ------ Buttons ------ */
+
+.btn-primary {
+  color: @base-color;
+  background-color: @primary-color;
+  border-color: @secondary-color;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: @base-color;
+  background-color: @secondary-color;
+  border-color: @secondary-color;
+}
+
+/* ------ Buttons end ------ */
+
+
+/* ------ Images & Icons ------ */
+
+.footer-link-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-link-icon:hover,
+.footer-link-icon:focus,
+.footer-link-icon:active,{
+
+}
+
+/* ------ Images & Icons end ------ */

@@ -14,7 +14,8 @@
             controllerAs: 'vm',
             restrict: 'E',
             scope: {
-                'year': '='
+                'year': '=',
+                'links': '='
             },
             templateUrl: 'app/layout/ttt-footer.html'
         };
