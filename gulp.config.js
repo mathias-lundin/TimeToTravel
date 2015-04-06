@@ -42,6 +42,18 @@ module.exports = function () {
         },
 
         /**
+         * template cache
+         */
+        templateCache: {
+            file: 'templates.js',
+            options: {
+                module: 'app.core',
+                standAlone: false, // Make it part of app.core
+                root: 'app/'
+            }
+        },
+
+        /**
          * Browser sync
          */
         browserReloadDelay: 0,
