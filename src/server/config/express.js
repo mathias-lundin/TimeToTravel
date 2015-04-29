@@ -3,6 +3,7 @@
     'use strict';
 
     var express = require('express'),
+        favicon = require('serve-favicon'),
         cookieParser = require('cookie-parser'),
         bodyParser = require('body-parser');
 
@@ -13,10 +14,11 @@
      * @param {string} env
      */
     expressConfig.init = function (app, config, env) {
+        console.log(__dirname);
+        app.use(favicon('./src/server/favicon.ico'));
         app.use(cookieParser());
-
         // parse application/x-www-form-urlencoded
-        app.use(bodyParser.urlencoded({extended: true}));
+        app.use(bodyParser.urlencoded({ extended: true }));
         // parse application/json
         app.use(bodyParser.json());
 
@@ -35,4 +37,4 @@
                 break;
         }
     };
-}(module.exports));
+} (module.exports));
